@@ -20,14 +20,14 @@ class MainActivity : AppCompatActivity()  {
         apiCall()
     }
 
-    private fun apiCall(): GithubApiClass {
+    private fun apiCall(): Result {
 
             val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
             StrictMode.setThreadPolicy(policy)
             val builder = GsonBuilder()
             val gson = builder.create()
-            val json = URL("https://api.github.com/users/arkonxu").readText()
-            var api = gson.fromJson(json, GithubApiClass::class.java)
+            val json = URL("http://dnd5eapi.co/api/classes").readText()
+            var api = gson.fromJson(json, Result::class.java)
             return api
 
     }
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity()  {
     fun cambiaText(v:View){
         v.setOnClickListener {
             var tv: TextView = findViewById(R.id.user)
-            tv.text = apiCall().login
+            tv.text = apiCall().name
         }
     }
 
