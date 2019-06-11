@@ -2,6 +2,7 @@ package com.example.dd.Classes
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -29,6 +30,7 @@ class Adapter  (val classesList: List<Result>, var actividad: Activity) : Recycl
             var intent = Intent(it.context, ClassesDetails::class.java)
             intent.putExtra("CLASE", clase as Serializable)
             it.context.startActivity(intent)
+
         }
         return view
     }
@@ -40,7 +42,9 @@ class Adapter  (val classesList: List<Result>, var actividad: Activity) : Recycl
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun rellenar(item : Result) {
             itemView.nc.text=item.name
+            itemView.imagenClase.clipToOutline=true
             itemView.imagenClase.setDrawable(item.name.decapitalize())
+
 //            itemView.imagenClase.setImageResource(itemView.getResources().getIdentifier("barbarian", "drawable", "com.example.dd"))
 //            itemView.tv2.text=item.edad.toString()
 //            Picasso.get().load(item.linkim).into(itemView.iv)

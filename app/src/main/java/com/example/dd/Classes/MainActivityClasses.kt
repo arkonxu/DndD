@@ -1,30 +1,36 @@
 package com.example.dd.Classes
 
+import android.app.PendingIntent.getActivity
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import java.net.URL;
 import com.google.gson.GsonBuilder;
-import android.view.View
 import android.os.StrictMode
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.example.dd.R
+import com.example.dd.com.example.dd.Classes.DividerList
 import com.example.dd.manejar
+import com.rbddevs.splashy.Splashy
 
 
 class MainActivityClasses : AppCompatActivity()  {
 
-    private lateinit var manager: LinearLayoutManager
+    private var manager: LinearLayoutManager = LinearLayoutManager(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setSplashy()
+
         var rv: RecyclerView = findViewById(R.id.rv)
         var clases:List<Result> = apiClases().results
 
-        manager = LinearLayoutManager(this)
         rv.manejar(manager,clases,this)
+        rv.addItemDecoration(DividerList(rv.context, R.drawable.divider))
 
     }
 
@@ -40,4 +46,17 @@ class MainActivityClasses : AppCompatActivity()  {
 
     }
 
+    fun setSplashy(){
+        Splashy(this)
+            .setLogo(R.drawable.icon)
+            .setTitle("D&D")
+            .setTitleColor("#FFFFFF")
+            .setSubTitle("Dungeons and Dragons")
+            .setProgressColor(R.color.white)
+            .setBackgroundResource(R.color.black)
+            .setFullScreen(true)
+            .setTime(2500)
+            .show()
+
+    }
 }
