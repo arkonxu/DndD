@@ -1,19 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
                                              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
                                              android:layout_height="match_parent">
 
-    <ImageView
-            android:transitionName="iv"
-            android:layout_width="150dp"
-            android:layout_height="150dp" tools:srcCompat="@tools:sample/avatars"
-            android:id="@+id/imagenClaseDetail" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.966"
-            app:layout_constraintVertical_bias="0.0"/>
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+                  app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                  android:id="@+id/LL" android:orientation="vertical" app:layout_constraintEnd_toEndOf="parent"
+                  android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.034">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imagenClaseDetail"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:civ_border_width="3dp"
+                app:civ_border_color="@color/greenForLightBlue"
+                android:layout_alignTop="@+id/nc"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginStart="8dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
+        />
+
+
+    </LinearLayout>
 
     <TextView
             android:text="TextView"
@@ -25,7 +38,7 @@
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.032" app:layout_constraintVertical_bias="0.0"/>
+            app:layout_constraintHorizontal_bias="0.702" app:layout_constraintVertical_bias="0.011"/>
     <TextView
             android:text="TextView"
             android:transitionName="tv2"
@@ -35,6 +48,8 @@
             app:layout_constraintTop_toBottomOf="@+id/nombreClase" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.025"
-            app:layout_constraintVertical_bias="0.14"/>
+            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.568"
+            app:layout_constraintVertical_bias="0.025"/>
+
+    <ExpandableListView android:layout_width="match_parent" android:layout_height="wrap_content" app:layout_constraintTop_toBottomOf="@+id/LL" android:id="@+id/list1"/>
 </android.support.constraint.ConstraintLayout>

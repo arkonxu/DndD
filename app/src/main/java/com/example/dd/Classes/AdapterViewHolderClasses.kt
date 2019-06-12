@@ -2,7 +2,6 @@ package com.example.dd.Classes
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Color
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -10,8 +9,6 @@ import android.view.ViewGroup
 import com.example.dd.R
 import com.example.dd.com.example.dd.Classes.ClassesDetails
 import com.example.dd.setDrawable
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.details_classes.view.*
 import kotlinx.android.synthetic.main.recyclerview_adapter.view.*
 import java.io.Serializable
 
