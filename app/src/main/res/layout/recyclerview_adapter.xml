@@ -15,15 +15,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/nc"
-                android:textSize="30dp"
+                android:textSize="25dp"
                 android:textColor="#000" android:layout_marginTop="8dp"
                 app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
                 app:layout_constraintLeft_creator="@+id/imagenClase"
                 app:layout_constraintBottom_toBottomOf="parent" android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:gravity="right" app:layout_constraintStart_toEndOf="@+id/imagenClase"
-                android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.17"
-                app:layout_constraintVertical_bias="0.507"/>
+                app:layout_constraintStart_toEndOf="@+id/imagenClase"
+                android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.029"
+                app:layout_constraintVertical_bias="0.16"/>
+
+        <TextView
+                android:text="TextView"
+                android:transitionName="tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/descripcion" android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintVertical_bias="0.929" app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imagenClase" android:layout_marginStart="8dp"
+                app:layout_constraintHorizontal_bias="0.024"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
