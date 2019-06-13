@@ -25,6 +25,7 @@ class ExpandableListViewAdapter(private val listaNom:List<String>, private val c
 
 
     override fun getChildView(groupPosition: Int, childPosition: Int, isLastChild: Boolean, convertView: View?, parent: ViewGroup ): View {
+
         var convertView = convertView
         val child = getChild(groupPosition, childPosition) as String
         val inflater = context.layoutInflater
@@ -35,7 +36,6 @@ class ExpandableListViewAdapter(private val listaNom:List<String>, private val c
 
         val item = convertView!!.findViewById<View>(R.id.txtChild) as TextView
         item.text = child
-        println("CHILD  POSITION  " +childPosition)
         return convertView
     }
 
@@ -68,11 +68,8 @@ class ExpandableListViewAdapter(private val listaNom:List<String>, private val c
             convertView = infalInflater.inflate(R.layout.group, null)
         }
         val item = convertView!!.findViewById<View>(R.id.txtGroup) as? TextView
-//        val item1 = convertView!!.findViewById<View>(R.id.txtChild) as? TextView
         item?.setTypeface(null, Typeface.BOLD)
         item?.text = stringName
-//        item1?.text = listaNom.get(groupPosition)
-        println("GROUP  POSITION  " +groupPosition)
         return convertView
     }
 

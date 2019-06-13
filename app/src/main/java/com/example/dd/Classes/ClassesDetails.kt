@@ -5,15 +5,12 @@ import android.os.Bundle
 import android.os.StrictMode
 import android.support.v7.app.AppCompatActivity
 import android.widget.ExpandableListAdapter
-import com.example.dd.Classes.Class
-import com.example.dd.Classes.From
-import com.example.dd.Classes.Proficiency
-import com.example.dd.Classes.Result
 import com.example.dd.setDrawable
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.details_classes.*
 import java.net.URL
 import android.widget.ExpandableListView
+import com.example.dd.Classes.*
 import com.example.dd.R
 
 
@@ -44,30 +41,60 @@ class ClassesDetails : AppCompatActivity() {
         return clase
     }
 
+    fun apiFrom() : List<From> {
+       var from =  apiClass().proficiency_choices[0].from
+        return from
+    }
+
+    fun apiAbility() : List<SavingThrow> {
+        var abilities =  apiClass().saving_throws
+        return abilities
+    }
+
+    fun apiEquipment() : List<StartingEquipmentX> {
+        val builder = GsonBuilder()
+        val gson = builder.create()
+        val json = URL(apiClass().starting_equipment.url).readText()
+        var equipment = gson.fromJson(json, StartingEquipmentClass::class.java)
+        return equipment.starting_equipment
+    }
+
+    fun apiSub() : List<Subclasse> {
+        var sub = apiClass().subclasses
+        return sub
+    }
+
+
     fun expandableList(){
 
 
         val expandableListView: ExpandableListView = findViewById(R.id.list1)
 
         var listaProficiency:List<String> = apiClass().proficiencies.map { it.name }
-        var listaProficiencyChoice= ArrayList<String>()//= apiClass().proficiency_choices.map { it. }
+        var listaProficiencyChoice :List<String> =  apiFrom().map { it.name }
+        var listaAbilities :List<String> =  apiAbility().map { it.name }
+        var listaEquipment :List<String> =  apiEquipment().map { it.item.name }
+        var listaSub:List<String> =  apiSub().map { it.name }
 
-        listaProficiencyChoice.add("AAAAAAAAAAAAA")
+
+
+
 
         var listaNombres = ArrayList<String>()
         listaNombres.add("Proficiencies")
         listaNombres.add("Proficiencies Choices")
         listaNombres.add("Ability Scores")
         listaNombres.add("Starting Equipment")
-        listaNombres.add("Class Levels")
         listaNombres.add("Subclasses")
-        listaNombres.add("Spellcasting")
 
 
 
         var listHash = ArrayList<List<String>>()
         listHash.add(listaProficiency)
         listHash.add(listaProficiencyChoice)
+        listHash.add(listaAbilities)
+        listHash.add(listaEquipment)
+        listHash.add(listaSub)
 
         var adapter = ExpandableListViewAdapter(listaNombres,this, listHash)
 

@@ -42,9 +42,6 @@ class Adapter  (val classesList: List<Result>, var actividad: Activity) : Recycl
             itemView.imagenClase.clipToOutline=true
             itemView.imagenClase.setDrawable(item.name.decapitalize())
 
-//            itemView.imagenClase.setImageResource(itemView.getResources().getIdentifier("barbarian", "drawable", "com.example.dd"))
-//            itemView.tv2.text=item.edad.toString()
-//            Picasso.get().load(item.linkim).into(itemView.iv)
         }
     }
 }
